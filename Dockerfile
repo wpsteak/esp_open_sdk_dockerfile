@@ -22,6 +22,7 @@ USER wpsteak
 
 RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git \
   && git clone https://github.com/esp8266/source-code-examples.git \
+  && git clone --recursive https://github.com/Superhouse/esp-open-rtos.git \
   && cd /opt/Espressif/esp-open-sdk && make STANDALONE=n
 
 ENV PATH /opt/Espressif/esp-open-sdk/xtensa-lx106-elf/bin:/opt/Espressif/esp-open-sdk/esptool/:$PATH
