@@ -4,7 +4,7 @@ set -e
 DOCKER_IMAGE=esp_dev
 ESP_HOME=/opt/Espressif
 
-ESP_WORK_DIR="$ESP_HOME/src/$(basename $PWD)"
+ESP_WORK_DIR="$ESP_HOME/esp-open-rtos/src/$(basename $PWD)"
 
 PARAMS="$PARAMS -it --rm"
 PARAMS="$PARAMS -v $PWD:$ESP_WORK_DIR"
