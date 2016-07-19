@@ -4,7 +4,7 @@ MAINTAINER PIN SHIH WANG <wpsteak@gmail.com>
 RUN \
  apt-get update && \
  apt-get dist-upgrade -y && \
- apt-get install -y git autoconf build-essential gperf bison flex texinfo libtool libncurses5-dev wget gawk libc6-dev python-serial libexpat-dev unzip libtool screen tmux vim nano help2man
+ apt-get install -y git autoconf build-essential gperf bison flex texinfo libtool libncurses5-dev wget gawk libc6-dev python-serial libexpat1-dev unzip libtool screen tmux vim nano help2man
 
  RUN \
   mkdir /home/wpsteak && \
