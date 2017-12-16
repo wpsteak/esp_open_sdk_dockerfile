@@ -4,7 +4,7 @@ MAINTAINER PIN SHIH WANG <wpsteak@gmail.com>
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq && \
  DEBIAN_FRONTEND=noninteractive apt-get dist-upgrade -y && \
  DEBIAN_FRONTEND=noninteractive apt-get install -y \
- git autoconf build-essential gperf bison flex texinfo libtool-bin libncurses5-dev wget gawk libc6-dev python2.7-dev python-serial unzip libtool screen tmux vim nano help2man
+ git autoconf automake build-essential gperf bison flex texinfo libtool-bin libncurses5-dev wget gawk libc6-dev python2.7-dev python-serial unzip libtool screen tmux vim nano help2man
 
  RUN \
   mkdir /home/wp4 && \
