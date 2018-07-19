@@ -20,15 +20,17 @@ WORKDIR /opt/Espressif
 RUN chown -R wp4 /opt/Espressif
 USER wp4
 
-RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git \
-  && cd /opt/Espressif/esp-open-sdk && make STANDALONE=n
+RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git
+RUN git clone https://github.com/wpsteak/esp_open_sdk_dockerfile.git
+RUN cp /opt/Espressif/esp_open_sdk_dockerfile/140-mpc.sh /opt/Espressif/esp-open-sdk/scripts/build/companion_libs/
+RUN cd /opt/Espressif/esp-open-sdk && make STANDALONE=n
 
 ENV PATH /opt/Espressif/esp-open-sdk/xtensa-lx106-elf/bin:/opt/Espressif/esp-open-sdk/esptool/:$PATH
 ENV XTENSA_TOOLS_ROOT /opt/Espressif/esp-open-sdk/xtensa-lx106-elf/bin
 ENV SDK_BASE /opt/Espressif/esp-open-sdk/sdk
 
 RUN git clone https://github.com/esp8266/source-code-examples.git \
-  && git clone --recursive https://github.com/Superhouse/esp-open-rtos.git \
+  && git clone --recursive https://github.com/Superhouse/esp-open-rtos.git
 
 # Getting a USB device to show up in a Docker container on OS X
 # https://gist.github.com/stonehippo/e33750f185806924f1254349ea1a4e68
