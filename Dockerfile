@@ -22,7 +22,7 @@ USER wp4
 
 RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git
 RUN git clone https://github.com/wpsteak/esp_open_sdk_dockerfile.git
-RUN cp /opt/Espressif/esp_open_sdk_dockerfile/140-mpc.sh /opt/Espressif/esp-open-sdk/crosstool-ng/scripts/build/companion_libs/
+RUN cp /opt/Espressif/esp_open_sdk_dockerfile/140-mpc.sh /opt/Espressif/esp-open-sdk/crosstool-NG/scripts/build/companion_libs/
 RUN cd /opt/Espressif/esp-open-sdk && make STANDALONE=n
 
 ENV PATH /opt/Espressif/esp-open-sdk/xtensa-lx106-elf/bin:/opt/Espressif/esp-open-sdk/esptool/:$PATH
