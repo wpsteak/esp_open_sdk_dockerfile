@@ -4,11 +4,11 @@ set -e
 DOCKER_IMAGE=esp8266
 ESP_HOME=/opt/Espressif
 ESP_WORK_DIR="$ESP_HOME/esp-open-rtos/src/$(basename $PWD)"
-# ESP_PORT="/dev/tty.SLAB_USBtoUART"
+ ESP_PORT="/dev/tty.SLAB_USBtoUART"
 # ESP_PORT="/dev/tty.usbserial"
- ESP_PORT="/dev/tty.usbserial-00000000"
+# ESP_PORT="/dev/tty.usbserial-00000000"
 # ESP_PORT="/dev/tty.wchusbserial14110"
-
+# ESP_PORT="/dev/tty.usbserial-1420"
 
 # PARAMS="$PARAMS -it --rm"
 PARAMS="$PARAMS --rm"
