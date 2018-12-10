@@ -1,7 +1,8 @@
 FROM gliderlabs/alpine
 MAINTAINER PIN SHIH WANG <wpsteak@gmail.com>
-# Based on https://github.com/automacaoiot/ESP8266-SDK-Docker/
+# Based on https://github.com/attachix/docker-c9-esp8266-sdk
 
+RUN apk add --no-cache bash
 RUN apk --update add build-base g++ make curl wget openssl-dev apache2-utils git libxml2-dev sshfs nodejs bash tmux python python-dev py-pip \
  && rm -f /var/cache/apk/*\
  && mkdir /workspace
