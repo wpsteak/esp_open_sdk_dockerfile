@@ -5,14 +5,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
  git autoconf automake build-essential gperf bison flex texinfo libtool-bin libncurses5-dev wget gawk libc6-dev python2.7-dev python-serial unzip libtool screen tmux vim nano help2man
 
-
 WORKDIR /opt/Espressif
 
 RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git
 RUN git clone https://github.com/wpsteak/esp_open_sdk_dockerfile.git
-# RUN cd /opt/Espressif/esp_open_sdk_dockerfile && git checkout -b old-state 67b52acc66
-# WORKDIR /opt/Espressif/esp_open_sdk_dockerfile
-# RUN git checkout -b old-state 67b52acc66
 RUN cp -f /opt/Espressif/esp_open_sdk_dockerfile/140-mpc.sh /opt/Espressif/esp-open-sdk/crosstool-NG/scripts/build/companion_libs/
 
 # https://stackoverflow.com/questions/17466017/how-to-solve-you-must-not-be-root-to-run-crosstool-ng-when-using-ct-ng
