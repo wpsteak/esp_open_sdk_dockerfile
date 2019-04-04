@@ -5,19 +5,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
  git autoconf automake build-essential gperf bison flex texinfo libtool-bin libncurses5-dev wget gawk libc6-dev python2.7-dev python-serial unzip libtool screen tmux vim nano help2man
 
- RUN \
-  mkdir /home/wp4 && \
-  groupadd -r wp4 -g 433  && \
-  useradd -u 431 -r -g wp4 -d /home/wp4 -s /sbin/nologin -c "Docker image user" wp4  && \
-  chown -R wp4:wp4 /home/wp4 && \
-  adduser wp4 sudo && \
-  adduser wp4 dialout && \
-  echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
 
 WORKDIR /opt/Espressif
-RUN chown -R wp4 /opt/Espressif
-USER wp4
 
 RUN git clone --recursive https://github.com/pfalcon/esp-open-sdk.git
 RUN git clone https://github.com/wpsteak/esp_open_sdk_dockerfile.git
@@ -25,6 +14,11 @@ RUN git clone https://github.com/wpsteak/esp_open_sdk_dockerfile.git
 # WORKDIR /opt/Espressif/esp_open_sdk_dockerfile
 # RUN git checkout -b old-state 67b52acc66
 RUN cp -f /opt/Espressif/esp_open_sdk_dockerfile/140-mpc.sh /opt/Espressif/esp-open-sdk/crosstool-NG/scripts/build/companion_libs/
+
+# https://stackoverflow.com/questions/17466017/how-to-solve-you-must-not-be-root-to-run-crosstool-ng-when-using-ct-ng
+ENV CT_EXPERIMENTAL=y
+ENV CT_ALLOW_BUILD_AS_ROOT=y
+ENV CT_ALLOW_BUILD_AS_ROOT_SURE=y
 RUN cd /opt/Espressif/esp-open-sdk && make STANDALONE=n
 
 ENV PATH /opt/Espressif/esp-open-sdk/xtensa-lx106-elf/bin:/opt/Espressif/esp-open-sdk/esptool/:$PATH

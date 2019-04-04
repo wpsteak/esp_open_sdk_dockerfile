@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DOCKER_IMAGE=esp8266
+DOCKER_IMAGE=wpinshih/esp8266
 ESP_HOME=/opt/Espressif
 ESP_WORK_DIR="$ESP_HOME/esp-open-rtos/src/$(basename $PWD)"
  ESP_PORT="/dev/tty.SLAB_USBtoUART"
