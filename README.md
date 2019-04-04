@@ -24,6 +24,12 @@ sudo ln -s {$PATH_YOU_CLONE}/make.sh /usr/local/bin/espmake
 
 1. enter target folder
 
+for example:
+
+```
+cd {$YOUR_PATH}/esp-open-rtos/examples/blink
+```
+
 2. just build firmware
 
 ```
