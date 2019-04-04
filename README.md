@@ -36,7 +36,7 @@ cd {$YOUR_PATH}/esp-open-rtos/examples/blink
 espmake
 ```
 
-3. or you want to clean before make
+3. or you just want to clean up
 
 ```
 espmake clean
