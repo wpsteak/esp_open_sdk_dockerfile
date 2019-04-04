@@ -20,7 +20,7 @@ git clone https://github.com/wpsteak/esp_open_sdk_dockerfile.git
 sudo ln -s {$PATH_YOU_CLONE}/make.sh /usr/local/bin/espmake
 ```
 
-## How To use espmake
+## How to use espmake
 
 1. enter target folder
 
